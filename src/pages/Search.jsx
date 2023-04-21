@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MainLayout from '../layouts/MainLayout';
 import { useDebouncedCallback } from "use-debounce";
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import { addGiphyToMyFavourite, auth, getAllMyFavGifs, removeGiphyFromMyFav } from '../firebase';
+import { auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Home = () => {
@@ -108,13 +107,6 @@ const Home = () => {
                         <img src={giphy.images.fixed_width_downsampled.url} className='rounded-t-md w-full h-56' />
                         <div className='w-full flex justify-between px-3 py-3'>
                           <div className='font-bold text-lg'>{giphy.title}</div>
-
-                          {
-                            addedToFav.includes(giphy.id) ?
-                              (<div className='text-yellow-500 pl-3'><AiFillStar size={25} /></div>)
-                              :
-                              (<div onClick={() => { addGiphyToMyFavourite(giphy); setAddedToFav([...addedToFav, giphy.id]) }} className='cursor-pointer text-yellow-500 pl-3'><AiOutlineStar size={25} /></div>)
-                          }
 
                         </div>
                         {!giphy.username == '' &&
