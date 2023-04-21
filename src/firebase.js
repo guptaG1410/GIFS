@@ -5,10 +5,9 @@ import {
     signInWithPopup,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
-    sendPasswordResetEmail,
     signOut,
 } from "firebase/auth";
-import { getFirestore, addDoc, collection, getDocs, getDoc, query, where, deleteDoc, doc } from "firebase/firestore"
+import { getFirestore, addDoc, collection } from "firebase/firestore"
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_API_KEY,
     authDomain: import.meta.env.VITE_AUTH_DOMAIN,
